@@ -1,4 +1,4 @@
-package _strStrII;
+package ladder1.strStrII;
 
 public class Solution {
     /**
