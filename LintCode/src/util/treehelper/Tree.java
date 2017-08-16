@@ -1,15 +1,51 @@
-package ladder4_bfs._7BinaryTreeSerialization;
-
+package util.treehelper;
+import java.awt.Color;
 import java.util.ArrayList;
 
-import util.treehelper.TreeNode;
+import org.StructureGraphic.v1.DSTreeNode;
 
-public class Solution {
-	/**
-	 * This method will be invoked first, you should design your own algorithm
-	 * to serialize a binary tree which denote by a root node to a string which
-	 * can be easily deserialized by your own "deserialize" method later.
-	 */
+public class Tree {
+	public TreeNode head;
+	
+	public Tree(String data) {
+		head = buildTree(data);
+	}
+	
+	public class TreeNode implements DSTreeNode {
+		private TreeNode left;
+		private TreeNode right;
+		private int val;
+		
+		
+		@Override
+		public DSTreeNode[] DSgetChildren() {
+			// TODO Auto-generated method stub
+			return new DSTreeNode[]{left, right};
+		}
+
+		@Override
+		public Color DSgetColor() {
+			// TODO Auto-generated method stub
+			return Color.BLACK;
+		}
+
+		@Override
+		public Object DSgetValue() {
+			// TODO Auto-generated method stub
+			return this.val;
+		}
+		
+		public TreeNode(int val) {
+			this.val = val;
+			this.left = this.right = null;
+		}
+		
+	}
+	
+	public TreeNode buildTree(String target) {
+		return deserialize(target);
+	}
+
 	public String serialize(TreeNode root) {
 		if (root == null) {
 			return "{}";
@@ -47,13 +83,6 @@ public class Solution {
 		return sb.toString();
 	}
 
-	/**
-	 * This method will be invoked second, the argument data is what exactly you
-	 * serialized at method "serialize", that means the data is not given by
-	 * system, it's given by your own serialize method. So the format of data is
-	 * designed by yourself, and deserialize it here as you serialize it in
-	 * "serialize" method.
-	 */
 	public TreeNode deserialize(String data) {
 		if (data.equals("{}")) {
 			return null;
