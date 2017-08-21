@@ -1,15 +1,16 @@
 package util.treehelper;
 
 import org.junit.Test;
-import org.StructureGraphic.v1.DSutils;
-import org.StructureGraphic.v1.TreePrinter;
+
+
 public class TestClass {
 	private final int recWidth = 50;
 	private final int recHeight = 50;
 	@Test
 	public void test() {
-		Tree tree = new Tree("{3,9,20,#,#,15,7}");
-		DSutils.show(tree.head, recWidth, recHeight);
+		Tree tree = new Tree("{98,97,#,88,#,84,#,79,87,64,#,#,#,63,69,62,#,#,#,30,#,27,59,9,#,#,#,#}");
+		tree.imShow();
 		while(true);
 	}
+	
 }

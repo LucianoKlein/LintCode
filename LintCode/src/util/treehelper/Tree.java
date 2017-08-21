@@ -1,14 +1,36 @@
 package util.treehelper;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 import org.StructureGraphic.v1.DSTreeNode;
+import org.StructureGraphic.v1.DSutils;
 
 public class Tree {
 	public TreeNode head;
 	
 	public Tree(String data) {
 		head = buildTree(data);
+	}
+	
+	public Tree(util.treehelper.TreeNode origin) {
+		String result = util.treehelper.TreeNode.serialize(origin);
+		head = buildTree(result);
+	}
+	
+	public void imShow(int recWidth, int recHeight) {
+		if (head == null) {
+			return;
+		}
+		DSutils.show(head, recWidth, recHeight);
+	}
+	
+	public void imShow() {
+		if (head == null) {
+			return;
+		}
+		DSutils.show(head, 50, 30);
 	}
 	
 	public class TreeNode implements DSTreeNode {
