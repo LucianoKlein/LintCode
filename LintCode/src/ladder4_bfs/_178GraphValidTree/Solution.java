@@ -31,7 +31,7 @@ public class Solution {
     	if (edges.length != n - 1) {
     		return false;
     	}
-    	//邻接表转换 成 邻接集合 
+    	// 弧表示法 转换成 邻接表
     	Map<Integer, Set<Integer>> graph = initializeGraph(n, edges);
     	/* 
     	 * 设计一个数据结构, 既能扮演queue, 还能判断是否存在过
@@ -66,7 +66,7 @@ public class Solution {
     }
     
     /**
-     * 把邻接表 转换成 邻接矩阵?
+     * 把  弧表示法 转换成 邻接表
      * @param n
      * @param edges
      * @return
