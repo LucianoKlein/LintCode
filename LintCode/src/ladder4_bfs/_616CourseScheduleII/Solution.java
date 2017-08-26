@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
+/**
+ * 这里之所以, 可以重复, 是因为在edges 链表中, 重复的元素都会存进来
+ * 在bfs中, 在删除其后置课程的度的时候, 会扫到两遍这个元素, 会减两次
+ * @author Mr.HX
+ *
+ */
 public class Solution {
     /**
      * @param numCourses a total of n courses
