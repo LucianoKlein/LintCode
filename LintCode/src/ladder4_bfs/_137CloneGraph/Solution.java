@@ -16,15 +16,15 @@ public class Solution {
         	return null;
         }
 		//step 1 
-		//µÚÒ»²½, °ÑÀÏÍ¼ÀïµÄËùÓĞµÄ½Úµã¶¼ÕÒµ½, ·Åµ½listÀï±ßÈ¥
+		//ç¬¬ä¸€æ­¥, æŠŠè€å›¾é‡Œçš„æ‰€æœ‰çš„èŠ‚ç‚¹éƒ½æ‰¾åˆ°, æ”¾åˆ°listé‡Œè¾¹å»
 		Set<UndirectedGraphNode> nodes = getAllNodes(node);
 		
 		//step 2
-		//µÚ¶ş²½, °ÑËùÓĞ½Úµã¶¼¿ËÂ¡Ò»±é, ²¢ÇÒ·ÅÈëÍ¨¹ı¹şÏ£±í, Ò»Ò»¶ÔÓ¦
+		//ç¬¬äºŒæ­¥, æŠŠæ‰€æœ‰èŠ‚ç‚¹éƒ½å…‹éš†ä¸€é, å¹¶ä¸”æ”¾å…¥é€šè¿‡å“ˆå¸Œè¡¨, ä¸€ä¸€å¯¹åº”
 		// old node --> new node
 		Map<UndirectedGraphNode, UndirectedGraphNode> mapping = cloneNodes(nodes);
 		
-		//step 3, °Ñ±ß½á¹¹Ò²¿ËÂ¡Íê³É
+		//step 3, æŠŠè¾¹ç»“æ„ä¹Ÿå…‹éš†å®Œæˆ
 		cloneEdges(nodes, mapping);
 		return mapping.get(node);
     }
@@ -35,12 +35,12 @@ public class Solution {
 		queue.offer(node);
 		hash.add(node);
 		/**
-		 * Õâ±ßÒ»¶¨ÒªÅĞ¶Ï·Ç¿Õ ²»ÄÜ queue != null, ±ØĞëµ÷ÓÃisEmpty
+		 * è¿™è¾¹ä¸€å®šè¦åˆ¤æ–­éç©º ä¸èƒ½ queue != null, å¿…é¡»è°ƒç”¨isEmpty
 		 */
 		while(!queue.isEmpty()) {
 			UndirectedGraphNode curr= queue.poll();
 			for (UndirectedGraphNode tempNode : curr.neighbors) {
-				//Èç¹û¹şÏ£±íÀï±ßÓĞÕâ¸ö½Úµã, ±¾ÂÖÌø¹ı
+				//å¦‚æœå“ˆå¸Œè¡¨é‡Œè¾¹æœ‰è¿™ä¸ªèŠ‚ç‚¹, æœ¬è½®è·³è¿‡
 				if (hash.contains(tempNode)) {
 					continue;
 				}
@@ -51,9 +51,9 @@ public class Solution {
 		return hash;
 	}
 	/**
-	 * ¿ËÂ¡ËùÓĞµÄ½Úµã
+	 * å…‹éš†æ‰€æœ‰çš„èŠ‚ç‚¹
 	 * @param nodes 
-	 * @return ĞÂÀÏ½ÚµãµÄÓ³Éä
+	 * @return æ–°è€èŠ‚ç‚¹çš„æ˜ å°„
 	 */
 	private Map<UndirectedGraphNode, UndirectedGraphNode> cloneNodes(Set<UndirectedGraphNode> nodes) {
 		Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
@@ -63,9 +63,9 @@ public class Solution {
 		return map;
 	}
 	/**
-	 * ¿ËÂ¡ËùÓĞµÄ±ß
-	 * @param nodes ËùÓĞµÄÀÏ½Úµã
-	 * @param mapping ÀÏ½Úµãkey, ĞÂ½Úµãvalue
+	 * å…‹éš†æ‰€æœ‰çš„è¾¹
+	 * @param nodes æ‰€æœ‰çš„è€èŠ‚ç‚¹
+	 * @param mapping è€èŠ‚ç‚¹key, æ–°èŠ‚ç‚¹value
 	 */
 	private void cloneEdges(Set<UndirectedGraphNode> nodes, 
 			                Map<UndirectedGraphNode, UndirectedGraphNode> mapping) {

@@ -15,13 +15,13 @@ public class Solution {
 		if (graph == null || graph.isEmpty()) {
 			return sortingResult;
 		}
-		//1¼ÆËã Èë¶È
+		//1è®¡ç®— å…¥åº¦
 		Map<DirectedGraphNode, Integer> indegreeMapping = getIndegree(graph);
 		
-		//2bfsÍØÆËÅÅĞò
+		//2å¾—åˆ°æ‰€æœ‰çš„é›¶åº¦èŠ‚ç‚¹
 		ArrayList<DirectedGraphNode> nodesWithZeroDegree = getZeroDegreetNodes(indegreeMapping, graph);
 		
-		//3bfs
+		//3bfsæ‹“æ‰‘æ’åº
 		sortingResult = bfs(indegreeMapping, nodesWithZeroDegree);
 		
 		if (sortingResult.size() == graph.size()) {

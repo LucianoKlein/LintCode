@@ -8,8 +8,8 @@ import java.util.Queue;
 import java.util.Set;
 
 /**
- * Ö»ĞèÒªÖªµÀÁ¬Í¨ĞÔ¾Í¿ÉÒÔÁË
- * n¸öµã, n-1 Ìõ±ß
+ * åªéœ€è¦çŸ¥é“è¿é€šæ€§å°±å¯ä»¥äº†
+ * nä¸ªç‚¹, n-1 æ¡è¾¹
  * @author Mr.HX
  *
  */
@@ -19,41 +19,41 @@ import java.util.Set;
  * @return true if it's a valid tree, or false
  */
 public class Solution {
-	 //ÆäÊµÅĞ¶ÏµÄÌõ¼ş¾Í2¸ö 
-	 //n¸öµã, n-1Ìõ±ß
-	 //È«²¿ÁªÍ¨.
+	 //å…¶å®åˆ¤æ–­çš„æ¡ä»¶å°±2ä¸ª 
+	 //nä¸ªç‚¹, n-1æ¡è¾¹
+	 //å…¨éƒ¨è”é€š.
     public boolean validTree(int n, int[][] edges) {
-    	//¿Õ½Úµã²»ÊÇÊ÷
+    	//ç©ºèŠ‚ç‚¹ä¸æ˜¯æ ‘
     	if (n == 0) {
     		return false;
     	}
-    	//n - 1Ìõ±ß, n¸ö½Úµã
+    	//n - 1æ¡è¾¹, nä¸ªèŠ‚ç‚¹
     	if (edges.length != n - 1) {
     		return false;
     	}
-    	// »¡±íÊ¾·¨ ×ª»»³É ÁÚ½Ó±í
+    	// å¼§è¡¨ç¤ºæ³• è½¬æ¢æˆ é‚»æ¥è¡¨
     	Map<Integer, Set<Integer>> graph = initializeGraph(n, edges);
     	/* 
-    	 * Éè¼ÆÒ»¸öÊı¾İ½á¹¹, ¼ÈÄÜ°çÑİqueue, »¹ÄÜÅĞ¶ÏÊÇ·ñ´æÔÚ¹ı
-    	 * ¾ÍÓÃqueue ºÍ hashÕâ¶ÔºÃ»ùÓÑ¾ÍºÃÁË
+    	 * è®¾è®¡ä¸€ä¸ªæ•°æ®ç»“æ„, æ—¢èƒ½æ‰®æ¼”queue, è¿˜èƒ½åˆ¤æ–­æ˜¯å¦å­˜åœ¨è¿‡
+    	 * å°±ç”¨queue å’Œ hashè¿™å¯¹å¥½åŸºå‹å°±å¥½äº†
     	 */
     	Queue<Integer> queue = new LinkedList<>();
     	Set<Integer> hash = new HashSet<>();
     	/**
-    	 * Ö»ÒªÍ¼²»¿Õ, ÄÇÃ´0Õâ¸ö½Úµã¾ÍÒ»¶¨´æÔÚ
+    	 * åªè¦å›¾ä¸ç©º, é‚£ä¹ˆ0è¿™ä¸ªèŠ‚ç‚¹å°±ä¸€å®šå­˜åœ¨
     	 */
     	queue.offer(0);
     	hash.add(0);
     	/*
     	 * bfs
-    	 * Èç¹û²»¿Õ ,ÄÇ¾ÍÒ»Ö±µ¯µ¯µ¯
+    	 * å¦‚æœä¸ç©º ,é‚£å°±ä¸€ç›´å¼¹å¼¹å¼¹
     	 */
     	while (!queue.isEmpty()) {
     		int node = queue.poll();
-    		//graph.get(node) Ö®ºó, ¾ÍÊÇÒ»¸ö¼¯ºÏ, ¼¯ºÏÀï¶¼ÊÇ´ËÊ±µ¯³öµÄ¶ÓÁĞÖĞÔªËØµÄÏàÁÚÔªËØ
-    		//±éÀúËùÓĞµÄnodeµÄÏàÁÚÔªËØ
+    		//graph.get(node) ä¹‹å, å°±æ˜¯ä¸€ä¸ªé›†åˆ, é›†åˆé‡Œéƒ½æ˜¯æ­¤æ—¶å¼¹å‡ºçš„é˜Ÿåˆ—ä¸­å…ƒç´ çš„ç›¸é‚»å…ƒç´ 
+    		//éå†æ‰€æœ‰çš„nodeçš„ç›¸é‚»å…ƒç´ 
     		for (Integer neighbor : graph.get(node)) {
-    			//Èç¹ûÕâ¸öÔªËØÒÑ¾­±»±éÀú¹ıÁË, ¾ÍÌø¹ıËû
+    			//å¦‚æœè¿™ä¸ªå…ƒç´ å·²ç»è¢«éå†è¿‡äº†, å°±è·³è¿‡ä»–
     			if (hash.contains(neighbor)) {
     				continue;
     			}
@@ -61,12 +61,12 @@ public class Solution {
     			queue.offer(neighbor);
     		}
     	}
-    	//n¸öµã, n - 1Ìõ±ß. È«¶¼ÄÜ±éÀúÒ»±é»¥ÏàÁ¬Í¨. ok
+    	//nä¸ªç‚¹, n - 1æ¡è¾¹. å…¨éƒ½èƒ½éå†ä¸€éäº’ç›¸è¿é€š. ok
     	return (hash.size() == n);
     }
     
     /**
-     * °Ñ  »¡±íÊ¾·¨ ×ª»»³É ÁÚ½Ó±í
+     * æŠŠ  å¼§è¡¨ç¤ºæ³• è½¬æ¢æˆ é‚»æ¥è¡¨
      * @param n
      * @param edges
      * @return
@@ -74,13 +74,13 @@ public class Solution {
     public Map<Integer, Set<Integer>> initializeGraph(int n, int[][] edges) {
     	Map<Integer, Set<Integer>> graph = new HashMap<>();
     	/*
-    	 * ³õÊ¼»¯Ã¿Ò»¸öHashSetµÄÖµ
+    	 * åˆå§‹åŒ–æ¯ä¸€ä¸ªHashSetçš„å€¼
     	 */
     	for (int i = 0; i < n; i++) {
     		graph.put(i, new HashSet<Integer>());
     	}
     	/*
-    	 * ±éÀúËùÓĞµÄedgesÊı×é, ÔÚmapÀïÉèÖÃÒ»ÏÂ, Ã¿Ò»Ìõ±ßsetÀï·ÅÈëËûµÄÏàÁÚ±ß
+    	 * éå†æ‰€æœ‰çš„edgesæ•°ç»„, åœ¨mapé‡Œè®¾ç½®ä¸€ä¸‹, æ¯ä¸€æ¡è¾¹seté‡Œæ”¾å…¥ä»–çš„ç›¸é‚»è¾¹
     	 */
     	for (int i = 0; i < edges.length; i++) {
     		int u = edges[i][0];

@@ -18,15 +18,15 @@ public class Solution {
 		queue.add(root);
 		for (int i = 0; i < queue.size(); i++) {
 			TreeNode node = queue.get(i);
-			// Èç¹ûÉ¨Ãèµ½¿Õ½Úµã, ÄÇÃ´¾ÍÌø¹ı±¾ÂÖ.
+			// å¦‚æœæ‰«æåˆ°ç©ºèŠ‚ç‚¹, é‚£ä¹ˆå°±è·³è¿‡æœ¬è½®.
 			if (node == null) {
 				continue;
 			}
-			// ÕâÀï»á¼ÓÈëËùÓĞµÄ½Úµã½ø¶ÓÁĞ, ¼´Ê¹×Ó½ÚµãÊÇ¿Õ½Úµã
+			// è¿™é‡Œä¼šåŠ å…¥æ‰€æœ‰çš„èŠ‚ç‚¹è¿›é˜Ÿåˆ—, å³ä½¿å­èŠ‚ç‚¹æ˜¯ç©ºèŠ‚ç‚¹
 			queue.add(node.left);
 			queue.add(node.right);
 		}
-		// °Ñ½áÎ²µÄÄÇĞ©¿ÕÊ÷¶¼É¾µô
+		// æŠŠç»“å°¾çš„é‚£äº›ç©ºæ ‘éƒ½åˆ æ‰
 		while (queue.get(queue.size() - 1) == null) {
 			queue.remove(queue.size() - 1);
 		}
@@ -58,30 +58,30 @@ public class Solution {
 		if (data.equals("{}")) {
 			return null;
 		}
-		//javaÊÇ×ó±ÕÓÒ¿ª, °Ñ´óÀ¨ºÅÈ¥µô, È»ºóÓÃ,À´·Ö¸î³ÉÊı×é
+		//javaæ˜¯å·¦é—­å³å¼€, æŠŠå¤§æ‹¬å·å»æ‰, ç„¶åç”¨,æ¥åˆ†å‰²æˆæ•°ç»„
 		String[] vals = data.substring(1,  data.length() - 1).split(",");
 		ArrayList<TreeNode> queue = new ArrayList<>();
-		//½¨Á¢Í·½áµã
+		//å»ºç«‹å¤´ç»“ç‚¹
 		TreeNode root = new TreeNode(Integer.parseInt(vals[0]));
 		queue.add(root);
 		int index = 0;
 		boolean isLeftChild = true;
-		//×¢ÒâÓĞÁ½¸öË÷Òı, Ò»¸öindex, ÊÇ±éÀú¸ù½ÚµãµÄ, ÔÚqueueÀï±ß±éÀú; 
-		//»¹ÓĞÒ»¸öi ÊÇ±éÀú×Ó½ÚµãµÄ, ÔÚvalsÀï±ß±éÀú
+		//æ³¨æ„æœ‰ä¸¤ä¸ªç´¢å¼•, ä¸€ä¸ªindex, æ˜¯éå†æ ¹èŠ‚ç‚¹çš„, åœ¨queueé‡Œè¾¹éå†; 
+		//è¿˜æœ‰ä¸€ä¸ªi æ˜¯éå†å­èŠ‚ç‚¹çš„, åœ¨valsé‡Œè¾¹éå†
 		for (int i = 1; i < vals.length; i++) {
-			//Èç¹û²»ÊÇ¿Õ½Úµã
+			//å¦‚æœä¸æ˜¯ç©ºèŠ‚ç‚¹
 			if (!vals[i].equals("#")) {
 				TreeNode node = new TreeNode(Integer.parseInt(vals[i]));
-				//iÊÇ×ó½Úµã,ÄÇÃ´¼ÓÔÚindexµÄ×ó±ß
+				//iæ˜¯å·¦èŠ‚ç‚¹,é‚£ä¹ˆåŠ åœ¨indexçš„å·¦è¾¹
 				if (isLeftChild) {
 					queue.get(index).left = node;
-				} else {//iÊÇÓÒ½Úµã, ÄÇÃ´¾Í¼ÓÔÚindexµÄÓÒ±ß
+				} else {//iæ˜¯å³èŠ‚ç‚¹, é‚£ä¹ˆå°±åŠ åœ¨indexçš„å³è¾¹
 					queue.get(index).right = node;
 				}
-				//add·½·¨ÊôÓÚlist, Ö»ÓĞ±¾½Úµã²»Îª¿ÕµÄÊ±ºò, queue²ÅÄÜ½øÈëÏÂÒ»¸ö
+				//addæ–¹æ³•å±äºlist, åªæœ‰æœ¬èŠ‚ç‚¹ä¸ä¸ºç©ºçš„æ—¶å€™, queueæ‰èƒ½è¿›å…¥ä¸‹ä¸€ä¸ª
 				queue.add(node);
 			}
-			//ÊÇÓÒ½ÚµãµÄ»°, ¾ÍÒªÈ¥´¦ÀíÏÂÒ»¸ö½ÚµãÁË
+			//æ˜¯å³èŠ‚ç‚¹çš„è¯, å°±è¦å»å¤„ç†ä¸‹ä¸€ä¸ªèŠ‚ç‚¹äº†
 			if (!isLeftChild) {
 				index++;
 			}
