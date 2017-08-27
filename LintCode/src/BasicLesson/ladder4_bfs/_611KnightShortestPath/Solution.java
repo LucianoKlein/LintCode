@@ -1,4 +1,4 @@
-package ladder4_bfs._611KnightShortestPath;
+package BasicLesson.ladder4_bfs._611KnightShortestPath;
 
 import java.util.LinkedList;
 import java.util.Queue;

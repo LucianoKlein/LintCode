@@ -1,4 +1,4 @@
-package ladder4_bfs._616CourseScheduleII;
+package BasicLesson.ladder4_bfs._616CourseScheduleII;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

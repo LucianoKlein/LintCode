@@ -1,4 +1,4 @@
-package ladder4_bfs._618SearchGraphNodes;
+package BasicLesson.ladder4_bfs._618SearchGraphNodes;
 
 import java.util.ArrayList;
 import java.util.HashSet;

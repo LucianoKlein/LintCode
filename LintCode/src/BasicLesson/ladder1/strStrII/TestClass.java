@@ -1,4 +1,4 @@
-package ladder1.strStrII;
+package BasicLesson.ladder1.strStrII;
 
 import org.junit.Test;
 

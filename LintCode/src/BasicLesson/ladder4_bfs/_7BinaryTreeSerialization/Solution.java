@@ -1,4 +1,4 @@
-package ladder4_bfs._7BinaryTreeSerialization;
+package BasicLesson.ladder4_bfs._7BinaryTreeSerialization;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package ladder4_bfs._178GraphValidTree;
+package BasicLesson.ladder4_bfs._178GraphValidTree;
 
 import java.util.HashMap;
 import java.util.HashSet;
