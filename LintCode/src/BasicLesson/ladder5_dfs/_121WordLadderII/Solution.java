@@ -60,6 +60,7 @@ public class Solution {
 			//把path再还原
 			Collections.reverse(path);
 		} else {
+			//map记录当前单词可以扩展的那些单词, 相当于存储了expand的结果, 转换成map
 			for (String next : map.get(crt)) {
 				if (distance.containsKey(next) && distance.get(crt) == distance.get(next) + 1) {
 					dfs(ladders, path, next, start, distance, map);
@@ -93,7 +94,7 @@ public class Solution {
 			//把expand的结果集, 用nextList来引用
 			List<String> nextList = expand(crt, dict);
 			for (String next : nextList) {
-				//得到字典词, 把当前的词加到ArrayList里边
+				//得到next这个词所有可以扩展的结果, 把这些词加到value的ArrayList里边
 				map.get(next).add(crt);
 				//如果distance 不包含 next
 				//如果distance 包含next的话, 说明是重复的路线, 就不需要走了
